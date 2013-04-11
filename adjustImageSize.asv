@@ -1,0 +1,41 @@
+% Adjust image sizes to fit the TV screen
+function [out_L out_R] = adjustImageSize(in_L, in_R)
+
+[l_row l_col l_ch] = size(in_L);
+[r_row r_col r_ch] = size(in_R);
+
+if (l_row ~= r_row || l_col ~= r_col || l_ch ~= r_ch)
+    disp('ERROR: Stereo images'' dimensions don''t match!');
+end
+
+% TV Resolution
+ROW = 1080;
+COL = 1920;
+ratio = ROW / COL;
+
+in_ch  = l_ch;
+in_row = l_row;
+in_col = l_col;
+in_ratio = in_row / in_col;
+
+if (in_ratio > ratio)
+    % in_row -> ROW
+    scale = ROW / in_row;
+    new_col = scale * in_col;
+    
+    col_space = (COL - new_col) / 2;
+    
+    out_L = zeros(ROW, COL/2, in_ch);
+    out_R = zeros(ROW, COL/2, in_ch);
+    
+    out_L(1:ROW, (col_space + 1):(col_space +
+    
+    
+elseif (in_ratio < ratio)
+    % in_col -> COL
+else
+    % in_ratio == ratio
+    out_L = imresize(in_L, [ROW COL/2]);
+    out_R = imresize(in_R, [ROW COL/2]);
+end
+

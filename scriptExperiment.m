@@ -23,7 +23,7 @@ for i = 1:length(in_filenames)
     is_reduced_R = true;
     [out_L out_R] = convertStereoPairs(out_L, out_R, is_reduced_R);
     
-out_R = out_R * 0.0;    
+%out_R = out_R * 0.4;    
     
     out_stereo    = mergeStereo(out_L, out_R);
     
