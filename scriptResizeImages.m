@@ -5,14 +5,14 @@ clear; clc;
 disp('Resize Images started...');
 
 % Laptop screen resolution
-% ROW = 900;
-% COL = 1600;
-%resolution = '1600x900';
+ROW = 900;
+COL = 1600;
+resolution = '1600x900';
 
 % 3DTV screen resolution
-ROW = 1080;
-COL = 1920;
-resolution = '1920x1080';
+% ROW = 1080;
+% COL = 1920;
+% resolution = '1920x1080';
 
 % Input / Output Image folders
 in_stereo_folder = './StereoImages/';
